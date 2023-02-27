@@ -105,8 +105,8 @@ public class Servers {
 		            int nhr =  y1 +avoh ;//new hour
 		            int nmin = y2 + avom ;//new minute
 		            int nsec = y3 + avos;//new second
+
 		            
-		        	System.out.println("Time Difference "+(y4-nhr)+":"+(y5-nmin)+":"+(y6-nsec));
                       if(nsec>60)
 		            {
 		            	nsec= nsec-60;
@@ -119,17 +119,20 @@ public class Servers {
 	                  
 		            }
 
+					int dhr = y4-nhr;
+					int dmin = y5-nmin;
+					int dsec = y6-nsec;
+		        	System.out.println("Time Difference "+(dhr)+":"+(dmin)+":"+(dsec));
 		            //print new time in server 
-		          System.out.println("\nThe  new calculated time is :");  
-		          System.out.println(nhr +":" + nmin + ":" + nsec);  
+					System.out.println("Sending difference to client"); 
 		          
 		          //send time to client
 		          PrintStream p2 = new PrintStream(sock.getOutputStream()); //create printsream object(also import)
-				  p2.println(nhr);// use object to pass string to client  
+				  p2.println(dhr);// use object to pass string to client  
 		          
-                  p2.println(nmin);// use object to pass string to client  
+                  p2.println(dmin);// use object to pass string to client  
 				  
-				  p2.println(nsec);// use object to pass string to client  
+				  p2.println(dsec);// use object to pass string to client  
 		            
 		            
 		            

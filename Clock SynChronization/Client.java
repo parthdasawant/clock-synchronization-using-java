@@ -55,26 +55,44 @@ public static void main(String[] args) throws IOException {
           PrintStream p5 = new PrintStream(sock.getOutputStream());// create printsream object(also import)
 		  p5.println(i);// use object to pass string to server
 		  
-		  
+		   Date ccurrentDate = new Date();
+					  SimpleDateFormat cdf = new SimpleDateFormat("HH:mm:ss");
+					  String j = cdf.format(ccurrentDate);
+
+            String k1 = j.substring(0,2);
+		            int y1 =Integer.parseInt(k1);
+		        	
+		            //Get minute from time strings
+		        	String k2 = j.substring(3,5);
+		            int y2 =Integer.parseInt(k2);
+                   
+		            //Get seconds from time string
+		        	String k3 = j.substring(6,8);
+		            int y3 =Integer.parseInt(k3);
+
 		  //Get new time from server
 		  
 		  //Get hour
           Scanner sc = new Scanner (sock.getInputStream());//define scanner variable 
           String shr = sc.nextLine();
-          int nhr = Integer.parseInt(shr);
+          int dhr = Integer.parseInt(shr);
           
          //Get Minutes
           String smin = sc.nextLine();
-          int nmin = Integer.parseInt(smin);
+          int dmin = Integer.parseInt(smin);
           
           
           //Get Seconds
           String ssec = sc.nextLine();
-          int nsec = Integer.parseInt(ssec);
+          int dsec = Integer.parseInt(ssec);
 
           
           //Print time acquired from server
-          System.out.println("New time is(after server calculation):"); 
+          System.out.println("Time Difference "+(dhr)+":"+(dmin)+":"+(dsec));
+          System.out.println("New time is:"); 
+          int nhr =  -dhr +y1 ;//new hour
+		      int nmin = -dmin + y2 ;//new minute
+		      int nsec = -dsec + y3;//new second
           System.out.println(nhr +":" + nmin + ":" + nsec); 
           
 	 }
