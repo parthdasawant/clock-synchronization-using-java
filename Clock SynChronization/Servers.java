@@ -106,7 +106,7 @@ public class Servers {
 		            int nmin = y2 + avom ;//new minute
 		            int nsec = y3 + avos;//new second
 		            
-		            
+		        	System.out.println("Time Difference "+(y4-nhr)+":"+(y5-nmin)+":"+(y6-nsec));
                       if(nsec>60)
 		            {
 		            	nsec= nsec-60;
